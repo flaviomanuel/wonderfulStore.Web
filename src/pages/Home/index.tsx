@@ -1,8 +1,7 @@
-import React from 'react'
 import Header from '../../Components/Header';
 
 
-function ListProducts() {
+function Home() {
   
   return (
     <>
@@ -11,4 +10,4 @@ function ListProducts() {
   )
 }
 
-export default ListProducts;
+export default Home;

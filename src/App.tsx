@@ -1,12 +1,15 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import {Router}  from './Router'
 
 
 function App() {
   
   return (
-    <>
-      <h1>olá mundo</h1>
-    </>
+    <BrowserRouter>
+      <Router />
+      aaaa
+    </BrowserRouter>
   )
 }
 
