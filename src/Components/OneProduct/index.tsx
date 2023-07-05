@@ -25,6 +25,11 @@ function OneProduct() {
                 <Typography>
                 Um dos mais fofos produtos da loja Wondeful, gato preso dentro de uma caixa de papelão.
                 </Typography>
+                <br/>
+        
+                <Typography fontWeight={"bold"} gutterBottom variant="h4" component="h2">
+                 R$ 10.49
+                </Typography>
             </CardContent>
             <CardActions>
                 <Button sx={{ width: '100%'}} variant='contained' size="large"  endIcon={<ShoppingBasketIcon />}>
