@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import ProductPage from "./pages/ProductPage";
+import RegisterProduct from "./pages/RegisterProduct";
 
 
 export function Router() {
@@ -8,6 +9,7 @@ export function Router() {
         <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/product" element={<ProductPage/>} />
+            <Route path="/register-product" element={<RegisterProduct/>} />
         </Routes>
     )
 }
