@@ -2,10 +2,11 @@ import { Button, Container, Grid, GridTypeMap, MenuItem, TextField, Typography }
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 
 interface FormsProps {
-    button: JSX.Element
+    button: JSX.Element,
+    title: string,
 }
 
-const Forms = ({ button } : FormsProps) => {
+const Forms = ({ button, title  } : FormsProps) => {
     
     var promotions = [
         {key:1, value:"Leve 2 pague 1"}, 
@@ -16,7 +17,7 @@ const Forms = ({ button } : FormsProps) => {
         
          <Container   maxWidth="sm"  component="form" sx={{ mb: 4, border: "1px solid", borderColor: "#D3DAE1",borderRadius: 2, mt: 15}}>
         <Typography variant="h5" align="center" sx={{py: 4}}>
-            Cadastro de produto
+            {title}
           </Typography>
                 <Typography variant="h6" >
                 Informe os valores
