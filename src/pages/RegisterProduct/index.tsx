@@ -7,7 +7,17 @@ const RegisterProduct = () => {
     return (
         <>
             <Header/>
-            <Forms button={<Button variant="contained" sx={{ width: '100%', mx: 'auto', my: 5}} size="large">Cadastrar Produto</Button>}  />
+            <Forms
+                title="Cadastrar produto"
+                button={
+                    <Button 
+                        variant="contained" 
+                        sx={{ width: '100%', mx: 'auto', my: 5}} 
+                        size="large">
+                            Cadastrar Produto
+                    </Button>
+                    } 
+            />
         </>
     );
 }
