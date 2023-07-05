@@ -1,5 +1,7 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Container, Link, Typography } from "@mui/material";
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Typography } from "@mui/material";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import { Link } from "react-router-dom";
+
 
 
 function OneProduct() {
@@ -32,11 +34,11 @@ function OneProduct() {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button sx={{ width: '100%'}} variant='contained' size="large"  endIcon={<ShoppingBasketIcon />}>
-                        <Link underline="none" color={"white"} href="/">
+                <Link to="/">
+                    <Button sx={{ width: '100%'}} variant='contained' size="large"  endIcon={<ShoppingBasketIcon />}>
                             Comprar
-                        </Link>
                     </Button>
+                </Link>
             </CardActions>
             </Card>
             </Container>
