@@ -1,9 +1,10 @@
 import { Button, CardActions, CardContent, CardMedia, Typography, Card, Grid } from '@mui/material';
+import { IProduct } from '../../shared/interfaces';
 
 
 
 
-function CardProduct() {
+function CardProduct({id, name, price, description, promotionType} : IProduct) {
   
     return (
          
@@ -21,13 +22,13 @@ function CardProduct() {
             />
             <CardContent sx={{ flexGrow: 1 }}>
                 <Typography gutterBottom variant="h5" component="h2">
-                Caixa de papelão com gato
+                    {name}
                 </Typography>
                 <Typography fontWeight={"bold"} gutterBottom variant="h5" component="h2">
-                 R$ 10.49
+                    R$ {price}
                 </Typography>
                 <Typography>
-                Um dos mais fofos produtos da loja Wondeful, gato preso dentro de uma caixa de papelão.
+                    {description}
                 </Typography>
             </CardContent>
             <CardActions>
