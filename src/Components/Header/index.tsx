@@ -18,7 +18,12 @@ function Header() {
                   <Link underline="none" color={"white"} href="/">
                     Produtos
                   </Link>
-                  </Button>
+              </Button>
+              <Button color="warning" sx={{ color: "white"}} variant="text">
+                  <Link underline="none" color={"white"} href="/manage-products">
+                    Gerenciar Produtos
+                  </Link>
+              </Button>
               </Link>
 
               <Button color="inherit">Login</Button>
