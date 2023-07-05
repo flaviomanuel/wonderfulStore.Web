@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import ProductPage from "./pages/ProductPage";
 import RegisterProduct from "./pages/RegisterProduct";
 import UpdateProduct from "./pages/UpdateProduct";
+import ManageProducts from "./pages/ManageProducts";
 
 
 export function Router() {
@@ -12,6 +13,7 @@ export function Router() {
             <Route path="/product" element={<ProductPage/>} />
             <Route path="/register-product" element={<RegisterProduct/>} />
             <Route path="/update-product" element={<UpdateProduct/>} />
+            <Route path="/manage-products" element={<ManageProducts/>} />
         </Routes>
     )
 }
