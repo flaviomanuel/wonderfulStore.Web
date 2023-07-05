@@ -4,6 +4,7 @@ import ProductPage from "./pages/ProductPage";
 import RegisterProduct from "./pages/RegisterProduct";
 import UpdateProduct from "./pages/UpdateProduct";
 import ManageProducts from "./pages/ManageProducts";
+import ShoppingCart from "./pages/ShoppingCart";
 
 
 export function Router() {
@@ -14,6 +15,7 @@ export function Router() {
             <Route path="/register-product" element={<RegisterProduct/>} />
             <Route path="/update-product" element={<UpdateProduct/>} />
             <Route path="/manage-products" element={<ManageProducts/>} />
+            <Route path="/shoppingCart" element={<ShoppingCart/>} />
         </Routes>
     )
 }
