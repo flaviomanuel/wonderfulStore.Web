@@ -10,7 +10,8 @@ const UpdateProduct = () => {
             <Forms
                 title="Atualizar produto"
                 button={
-                    <Button 
+                    <Button
+                        type="submit" 
                         variant="contained" 
                         color="success" 
                         sx={{ width: '100%', mx: 'auto', my: 5}} 
