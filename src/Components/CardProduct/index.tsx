@@ -23,6 +23,9 @@ function CardProduct() {
                 <Typography gutterBottom variant="h5" component="h2">
                 Caixa de papelão com gato
                 </Typography>
+                <Typography fontWeight={"bold"} gutterBottom variant="h5" component="h2">
+                 R$ 10.49
+                </Typography>
                 <Typography>
                 Um dos mais fofos produtos da loja Wondeful, gato preso dentro de uma caixa de papelão.
                 </Typography>
