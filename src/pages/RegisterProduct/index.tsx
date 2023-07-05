@@ -11,6 +11,7 @@ const RegisterProduct = () => {
                 title="Cadastrar produto"
                 button={
                     <Button 
+                        type="submit"
                         variant="contained" 
                         sx={{ width: '100%', mx: 'auto', my: 5}} 
                         size="large">
