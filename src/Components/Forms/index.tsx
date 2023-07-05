@@ -4,6 +4,7 @@ import api from "../../services/api";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useParams } from 'react-router';
 import queryString from "query-string";
+import { PromotionTypes } from "../../shared/types";
 
 interface FormsProps {
     button: JSX.Element,
@@ -17,7 +18,6 @@ interface IInitialValues {
     promotionType: PromotionTypes,
 }
 
-type PromotionTypes =  0 | 1 | 2
 
 interface Promotions  {
     key: '',
