@@ -14,7 +14,11 @@ function Header() {
                 Wonderful Store
               </Typography>
               <Link href="#" sx={{ marginRight: 6}} color="inherit">
-              <Button color="warning" sx={{ color: "white"}} variant="text">Produtos</Button>
+              <Button color="warning" sx={{ color: "white"}} variant="text">
+                  <Link underline="none" color={"white"} href="/">
+                    Produtos
+                  </Link>
+                  </Button>
               </Link>
 
               <Button color="inherit">Login</Button>
