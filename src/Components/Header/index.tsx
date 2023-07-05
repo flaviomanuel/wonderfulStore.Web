@@ -1,5 +1,6 @@
 import { AppBar, Box, Button, IconButton, Link, Toolbar, Typography  } from '@mui/material';
 import StoreIcon from '@mui/icons-material/Store';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function Header() {
   
@@ -22,6 +23,11 @@ function Header() {
               <Button color="warning" sx={{ color: "white"}} variant="text">
                   <Link underline="none" color={"white"} href="/manage-products">
                     Gerenciar Produtos
+                  </Link>
+              </Button>
+              <Button color="warning" sx={{ color: "white"}} variant="text">
+                  <Link underline="none" color={"white"} href="/manage-products">
+                    Carrinho de compras
                   </Link>
               </Button>
               </Link>
