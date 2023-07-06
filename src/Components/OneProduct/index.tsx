@@ -1,11 +1,43 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Container, Typography } from "@mui/material";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from "react-router-dom";
+import api from "../../services/api";
+import { PromotionTypes } from "../../shared/types";
+import { IProduct } from "../../shared/interfaces";
+import { useEffect, useState } from "react";
 
+interface IOneProduct {
+    idProduct: string
+}
 
-
-function OneProduct() {
+const initialValuesProduct ={
+    id: '',
+    name: '',
+    price: 0,
+    description: '',
+    promotionType: 0 as PromotionTypes,
+  }
   
+
+function OneProduct({ idProduct }: any) {
+  
+    const [product, setProduct] = useState<IProduct>(initialValuesProduct);
+
+    const getProductById = async () => {
+        try {
+          const response = await api.get(`Product/GetById?Id=${idProduct}`)
+            
+          setProduct(response.data)
+        } catch (error) {
+            alert(error)
+        }
+    }
+
+    useEffect(() => {
+        getProductById()
+    },
+    [])
+
     return (
         <Container maxWidth="sm" sx={{ pt: 20}}>
         <Card
@@ -22,15 +54,15 @@ function OneProduct() {
             />
             <CardContent sx={{ flexGrow: 1 }}>
                 <Typography gutterBottom variant="h5" component="h2">
-                Caixa de papelão com gato
+                {product.name}
                 </Typography>
                 <Typography>
-                Um dos mais fofos produtos da loja Wondeful, gato preso dentro de uma caixa de papelão.
+                {product.description}
                 </Typography>
                 <br/>
         
                 <Typography fontWeight={"bold"} gutterBottom variant="h4" component="h2">
-                 R$ 10.49
+                 R${product.price}
                 </Typography>
             </CardContent>
             <CardActions>
