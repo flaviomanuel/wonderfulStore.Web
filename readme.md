@@ -26,3 +26,9 @@
     ```
 
     - Casa haja alguma necessidade, você pode alterar a BASE_URL da api `src/service/api.ts`
+
+### Observação
+
+    - Todo historico de desenvolvimento está disponivel nos commits do repositorio
+    - Para visualizar o backend dessa aplicação: https://github.com/flaviomanuel/wonderfulStore.api
+ 
