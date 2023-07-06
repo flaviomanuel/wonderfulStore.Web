@@ -1,6 +1,45 @@
 import { Button, Card, CardContent, CardMedia, Container, Grid, TextField, Typography } from "@mui/material";
+import { IProduct } from "../../shared/interfaces";
+import PromotionChip from "../PromotionChip/PromotionChip";
+import { useState } from "react";
+import api from "../../services/api";
 
-const ShoppingCartCardProduct = () => {
+
+interface IShoppingCartCardProduct {
+    product:  IProduct,
+    quantity: number,
+    totalPrice: number
+}
+
+interface IstateQuantity {
+    quantity: number
+}
+
+const  existShoppingCartCreated = localStorage.getItem("idShoppingCart");
+
+
+const ShoppingCartCardProduct = ({product, quantity, totalPrice} : IShoppingCartCardProduct) => {
+
+    const [_quantity, setQuantity] = useState<IstateQuantity>({quantity});
+
+    function onChangeQuantity(event: React.ChangeEvent<HTMLInputElement>) {
+
+        
+        setQuantity({..._quantity, [event.target.name]: event.target.value});
+    }
+
+    const updateProductQuantity = () => {
+
+        const data = {
+           quantity: _quantity ? Number(_quantity.quantity) : _quantity,
+        }
+        try {
+            api.put(`ShoppingCartProduct/UpdateQuantityOfProduct?idProduct=${product.id}&idShoppingCart=${existShoppingCartCreated}`, data)
+        } catch (error) {
+            alert(error)
+        }
+    }
+    console.log(_quantity)
 
     return (
         <Grid sx={{mb: 3}} spacing={2}>
@@ -18,21 +57,31 @@ const ShoppingCartCardProduct = () => {
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                         <Typography gutterBottom variant="h6" component="h6">
-                        Caixa de papelão com gato
+                            {product.name}
                         </Typography>
-                        <Typography fontWeight={"bold"} gutterBottom variant="h6" component="h6">
-                        R$ 10.49
+                        {/* <Typography fontWeight={"bold"} gutterBottom variant="h6" component="h6">
+                           Preço Unico R$ {product.price}
+                        </Typography> */}
+                        <Typography fontWeight={"bold"} gutterBottom variant="h6" >
+                           Promoção por R${totalPrice}
+                        </Typography>
+                        <Typography fontWeight={"bold"} gutterBottom variant="h6" >
+                           preço do produto R${product.price}
                         </Typography>
                         <Typography>
-                        Um dos mais fofos produtos da loja Wondeful, gato preso dentro de uma caixa de papelão.
+                            {product.description}
                         </Typography>
                     </CardContent>
+                        <PromotionChip promotionType={product.promotionType}/>
                     <Container component={"div"}   sx={{ width: '100%', mx: 'auto', my: 2, }}>
                         <TextField
                             label="Quantidade"
                             id="quantity"
+                            name="quantity"
                             type="number"
                             size="small"
+                            onChange={onChangeQuantity}
+                            value={_quantity.quantity}
                             sx={{
                                 mx: 'auto',
                                 width: '100%'
@@ -41,7 +90,6 @@ const ShoppingCartCardProduct = () => {
                                 shrink: true,
                             }}
                         />                            
-
                     <Button
                         type="submit" 
                         variant="contained" 
@@ -52,6 +100,7 @@ const ShoppingCartCardProduct = () => {
                             width: '100%',
                             my: 2
                         }}
+                        onClick={updateProductQuantity}
                     >
                         Atualizar quantidade
                     </Button>
