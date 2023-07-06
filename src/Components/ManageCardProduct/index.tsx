@@ -2,13 +2,29 @@ import { Button, CardActions, CardContent, CardMedia, Typography, Card, Grid, Bo
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import EditIcon from '@mui/icons-material/Edit';
+import { IProduct } from '../../shared/interfaces';
+import api from '../../services/api';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
-function ManageCardProduct() {
-    var products = [1, 2, 3, 4, 5, 6 ,7,8]
-  
+function ManageCardProduct({id, name, price, description, promotionType} : IProduct) {
+ 
+
+
+    const deleteProductByid = async () => {
+        try {
+          await api.delete(`Product/Delete/${id}`);
+
+          alert(`Produto ${name} deletado com sucesso`)
+          location.reload()
+          
+        } catch (error) {
+          alert(error);
+        }
+      }
+
     return (
          
         <Grid item key={1} xs={12} sm={6} md={4}>
@@ -27,18 +43,18 @@ function ManageCardProduct() {
             
             <CardContent sx={{ flexGrow: 1 }}>
                 <Typography gutterBottom variant="h5" component="h2">
-                Caixa de papelão com gato
+                {name}
                 </Typography>
                 <Typography fontWeight={"bold"} gutterBottom variant="h5" component="h2">
-                 R$ 10.49
+                 R${price}
                 </Typography>
                 <Typography>
-                Um dos mais fofos produtos da loja Wondeful, gato preso dentro de uma caixa de papelão.
+                {description}
                 </Typography>
             </CardContent>
             <CardActions>
                 <Box width={"100%"}>
-                    <IconButton edge="end" aria-label="delete" color="error">
+                    <IconButton  onClick={deleteProductByid} edge="end" aria-label="delete" color="error">
                         <DeleteIcon />
                     </IconButton>
                     <IconButton sx={{marginLeft: 2}} edge="end" aria-label="update" color="warning">
