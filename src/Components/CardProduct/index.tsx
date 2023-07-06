@@ -1,13 +1,15 @@
-import { Button, CardActions, CardContent, CardMedia, Typography, Card, Grid, Stack, Chip } from '@mui/material';
+import { Button, CardActions, CardContent, CardMedia, Typography, Card, Grid, Stack, Chip, CardActionArea } from '@mui/material';
 import { IProduct } from '../../shared/interfaces';
 import PromotionChip from '../PromotionChip/PromotionChip';
 import api from '../../services/api';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function CardProduct({id, name, price, description, promotionType} : IProduct) {
   
+    const navigate = useNavigate()
     const CreateShoppingCart = async () => {
         try {
             const response = await api.post("/ShoppingCart/Add")
@@ -45,15 +47,13 @@ function CardProduct({id, name, price, description, promotionType} : IProduct) {
     }
 
     useEffect(() => {
-    // const  existShoppingCartCreated =   localStorage.getItem("idShoppingCart");
-
-
 
     }, [])
 
     return (
          
         <Grid item key={1} xs={12} sm={6} md={4}>
+            <CardActionArea onClick={() => {navigate(`/product?idProduct=${id}`)}} >
             <Card
             sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
             >
@@ -81,6 +81,7 @@ function CardProduct({id, name, price, description, promotionType} : IProduct) {
                 <Button onClick={() => AddProductInShoppingCartOnClick()} sx={{ width: '100%'}} variant='contained' size="medium">Adicionar no carrinho</Button>
             </CardActions>
             </Card>
+            </CardActionArea>
       </Grid>
     )
   
