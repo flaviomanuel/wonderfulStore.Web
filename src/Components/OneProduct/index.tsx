@@ -66,7 +66,7 @@ function OneProduct({ idProduct }: any) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Link to="/">
+                <Link to="/shoppingCart">
                     <Button sx={{ width: '100%'}} variant='contained' size="large"  endIcon={<ShoppingBasketIcon />}>
                             Comprar
                     </Button>
