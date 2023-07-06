@@ -1,12 +1,56 @@
 import { Button, CardActions, CardContent, CardMedia, Typography, Card, Grid, Stack, Chip } from '@mui/material';
 import { IProduct } from '../../shared/interfaces';
 import PromotionChip from '../PromotionChip/PromotionChip';
-
+import api from '../../services/api';
+import { useEffect } from 'react';
 
 
 
 function CardProduct({id, name, price, description, promotionType} : IProduct) {
   
+    const CreateShoppingCart = async () => {
+        try {
+            const response = await api.post("/ShoppingCart/Add")
+
+            localStorage.setItem('idShoppingCart', response.data.id);
+
+            return response.data.id;
+        } catch (error) {
+            alert(error)
+        }
+    }
+
+    const AddProductInShoppingCartOnClick = async () => {
+        try {
+            const  existShoppingCartCreated = localStorage.getItem("idShoppingCart");
+
+            var idShoppingCart;
+            if(!existShoppingCartCreated) {
+                idShoppingCart =  CreateShoppingCart();
+            } 
+
+
+            const data = {
+                idProduct: id,
+                idShoppingCart: existShoppingCartCreated ?? idShoppingCart,
+                quantity: 1
+              
+            }
+
+            const response = await api.post("/ShoppingCartProduct/AddProductInShoppingCart", data);
+        
+        } catch (error) {
+            
+        }
+    }
+
+    useEffect(() => {
+    // const  existShoppingCartCreated =   localStorage.getItem("idShoppingCart");
+
+
+
+    }, [])
+
     return (
          
         <Grid item key={1} xs={12} sm={6} md={4}>
@@ -34,7 +78,7 @@ function CardProduct({id, name, price, description, promotionType} : IProduct) {
             </CardContent>
             <PromotionChip  promotionType={promotionType}/>
             <CardActions>
-                <Button sx={{ width: '100%'}} variant='contained' size="medium">Adicionar no carrinho</Button>
+                <Button onClick={() => AddProductInShoppingCartOnClick()} sx={{ width: '100%'}} variant='contained' size="medium">Adicionar no carrinho</Button>
             </CardActions>
             </Card>
       </Grid>
