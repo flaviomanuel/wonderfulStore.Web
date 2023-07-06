@@ -41,6 +41,18 @@ const ShoppingCartCardProduct = ({product, quantity, totalPrice} : IShoppingCart
             alert(error)
         }
     }
+
+    const removeProductFromCart = async () => {
+        try {
+            await api.delete(`ShoppingCartProduct/DeleteProductInShoppingCart?idProduct=${product.id}&idShoppingCart=${existShoppingCartCreated}`)
+            
+            alert(`Produto ${product.name} removido com sucesso`)
+
+        } catch (error) {
+            alert(error)
+            
+        }
+    }
     console.log(_quantity)
 
     return (
@@ -115,6 +127,7 @@ const ShoppingCartCardProduct = ({product, quantity, totalPrice} : IShoppingCart
                             mx: 'auto',
                             width: '100%',
                         }}
+                        onClick={removeProductFromCart}
                     >
                         Remover produto do carrinho
                     </Button>
