@@ -1,5 +1,6 @@
-import { Button, CardActions, CardContent, CardMedia, Typography, Card, Grid } from '@mui/material';
+import { Button, CardActions, CardContent, CardMedia, Typography, Card, Grid, Stack, Chip } from '@mui/material';
 import { IProduct } from '../../shared/interfaces';
+import PromotionChip from '../PromotionChip/PromotionChip';
 
 
 
@@ -31,8 +32,9 @@ function CardProduct({id, name, price, description, promotionType} : IProduct) {
                     {description}
                 </Typography>
             </CardContent>
+            <PromotionChip  promotionType={promotionType}/>
             <CardActions>
-                <Button variant='contained' size="medium">Adicionar no carrinho</Button>
+                <Button sx={{ width: '100%'}} variant='contained' size="medium">Adicionar no carrinho</Button>
             </CardActions>
             </Card>
       </Grid>
