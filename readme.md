@@ -1,7 +1,7 @@
 # Wonderful Store Frontend
 
 
-- Justificativa das bibliotecas e Decisões tecnicas 
+## Justificativa das bibliotecas e Decisões tecnicas 
 
     - Foi utilizado como  principal biblioteca o React, para construir o sistema como SPA.
     - Utilizou-se a linguagem Typescript no codigo, já que é uma ferramenta essencial por trazer timpagem, assim trazendo maior segurando para o sistema.
@@ -12,6 +12,17 @@
     - Utiliza-se os principios de CleanCode
 
 
-- instrução de como compilar e executar o projeto
+## instrução de como compilar e executar o 
 
 
+    ```bash 
+    $ git clone https://github.com/flaviomanuel/wonderfulStore.Web
+
+    $ cd wonderfulStore.Web
+
+    $ npm install
+
+    $ npm run dev
+    ```
+
+    - Casa haja alguma necessidade, você pode alterar a BASE_URL da api `src/service/api.ts`
