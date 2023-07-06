@@ -5,13 +5,14 @@ import EditIcon from '@mui/icons-material/Edit';
 import { IProduct } from '../../shared/interfaces';
 import api from '../../services/api';
 import { useNavigate } from 'react-router-dom';
+import PromotionChip from '../PromotionChip/PromotionChip';
 
 
 
 
 function ManageCardProduct({id, name, price, description, promotionType} : IProduct) {
  
-
+    const navigate = useNavigate();
 
     const deleteProductByid = async () => {
         try {
@@ -52,12 +53,13 @@ function ManageCardProduct({id, name, price, description, promotionType} : IProd
                 {description}
                 </Typography>
             </CardContent>
+            <PromotionChip  promotionType={promotionType} />
             <CardActions>
                 <Box width={"100%"}>
                     <IconButton  onClick={deleteProductByid} edge="end" aria-label="delete" color="error">
                         <DeleteIcon />
                     </IconButton>
-                    <IconButton sx={{marginLeft: 2}} edge="end" aria-label="update" color="warning">
+                    <IconButton onClick={() => navigate(`/update-product?idProduct=${id}`)} sx={{marginLeft: 2}} edge="end" aria-label="update" color="warning">
                         <EditIcon />
                     </IconButton>
                 </Box>
