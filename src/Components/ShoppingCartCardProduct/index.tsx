@@ -35,6 +35,8 @@ const ShoppingCartCardProduct = ({product, quantity, totalPrice} : IShoppingCart
         }
         try {
             api.put(`ShoppingCartProduct/UpdateQuantityOfProduct?idProduct=${product.id}&idShoppingCart=${existShoppingCartCreated}`, data)
+
+            alert(`Quantidade do produto ${product.name} atualizado com sucesso`)
         } catch (error) {
             alert(error)
         }
