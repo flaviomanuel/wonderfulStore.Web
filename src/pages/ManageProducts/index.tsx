@@ -1,4 +1,4 @@
-import { Container, Grid } from "@mui/material";
+import { Button, Container, Grid } from "@mui/material";
 import Header from "../../Components/Header";
 import ManageCardProduct from "../../Components/ManageCardProduct";
 import { useEffect, useState } from "react";
@@ -27,9 +27,7 @@ const ManageProducts = () => {
       }
   }
 
-  const deleteProductByid = () => {
-    
-  }
+ 
 
   useEffect(() => {
       GetAllProducts();

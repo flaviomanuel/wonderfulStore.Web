@@ -1,7 +1,7 @@
 import { AppBar, Box, Button, IconButton, Toolbar, Typography  } from '@mui/material';
 import StoreIcon from '@mui/icons-material/Store';
 import { Link } from "react-router-dom";
-
+import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 
 function Header() {
   
@@ -26,6 +26,11 @@ function Header() {
                           Gerenciar Produtos
                     </Button>
                 </Link>
+                    <Link  to="/register-product">
+                      <Button variant="text" sx={{ color: "white"}} endIcon={<AddCircleOutlineOutlinedIcon />}>
+                          Adicionar produto
+                      </Button>
+                    </Link>
                 <Link to="/shoppingCart">
                     <Button color="warning" sx={{ color: "white"}} variant="text">
                       Carrinho de compras
